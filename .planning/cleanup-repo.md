@@ -62,8 +62,25 @@ pusher was not acting through `gh`.
   rejects at vet time, so that package fails to compile under `go test` on Go 1.26.5.
   Pre-existing on `HEAD`; unrelated to this cleanup.
 
+## Remote settings (GitHub API)
+
+Set on `mahyartdb/Throne`:
+
+- description: "Cross-platform desktop GUI proxy utility (Qt6 GUI + sing-box core)"
+- topics: amneziawg, clash, cross-platform, desktop, linux, macos, nekobox, nekoray,
+  proxy, qt6, sing-box, v2ray, vpn, windows
+- issues on; wiki, projects and discussions off
+- `delete_branch_on_merge` on
+
+**Branch protection could not be enabled.** Both the branch-protection API and the
+rulesets API return HTTP 403 — "Upgrade to GitHub Pro or make this repository public
+to enable this feature." The repository is private and the account is on the free plan,
+so protecting `dev`/`stable` against force-push and deletion needs either a paid plan
+or a public repository. Nothing was changed to work around this.
+
 ## Out of scope (offered, not done)
 
 - History rewrite to purge dead font blobs (needs `--force` push).
 - Adding `.clang-format` (changes formatting output repo-wide).
 - Fixing the `%w` vet errors in `winipcfg_test.go`.
+- A README note that building the Go core requires `protoc`.
