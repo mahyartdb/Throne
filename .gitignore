@@ -1,90 +1,129 @@
-# This file is used to ignore files which are generated
-# ----------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Throne — ignore rules
+#
+# Layout:
+#   src/, include/, res/, cmake/   C++/Qt GUI
+#   core/                          Go core (sing-box)
+#   3rdparty/                      vendored code — TRACKED ON PURPOSE, do not ignore
+#   script/, .github/              tooling and CI
+#
+# Build output lives in build/ and deployment/; both are ignored wholesale.
+# ---------------------------------------------------------------------------
 
-*~
-*.autosave
-*.a
-*.core
-*.moc
+# --- Build output ------------------------------------------------------------
+/build/
+/build-*/
+/cmake-build-*/
+/cmake-build_*/
+/out/
+/deployment/
+/Throne
+/Throne.exe
+/Throne.app/
+*.app/
+/qtsdk/
+
+# --- CMake -------------------------------------------------------------------
+CMakeLists.txt.user*
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+CMakeUserPresets.json
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+install_manifest.txt
+compile_commands.json
+_deps/
+
+# --- Compiled objects, libraries and binaries ---------------------------------
 *.o
 *.obj
-*.orig
-*.rej
+*.a
+*.lib
+*.exp
+*.iobj
+*.ipdb
+*.ilk
+*.idb
+*.pdb
 *.so
 *.so.*
-*_pch.h.cpp
-*_resource.rc
-.#*
-*.*#
-core
-!core/
-tags
-.DS_Store
-.directory
-*.debug
-/Makefile*
-*.prl
-*.app
-moc_*.cpp
-ui_*.h
-qrc_*.cpp
-Thumbs.db
-*.res
-/.qmake.cache
-/.qmake.stash
-
-# qtcreator generated files
-*.pro.user*
-
-# xemacs temporary files
-*.flc
-
-# Vim temporary files
-.*.swp
-
-# Visual Studio generated files
-*.ib_pdb_index
-*.idb
-*.ilk
-*.pdb
-*.sln
-*.suo
-*.vcproj
-*vcproj.*.*.user
-*.ncb
-*.sdf
-*.opensdf
-*.vcxproj
-*vcxproj.*
-
-# MinGW generated files
-*.Debug
-*.Release
-
-# Python byte code
-*.pyc
-
-# Binaries
-# --------
+*.dylib
 *.dll
 *.exe
+*.gch
+*.pch
+*.res
+*.manifest
+*_pch.h.cpp
+*_resource.rc
+moc_*.cpp
+moc_*.h
+ui_*.h
+qrc_*.cpp
+*.moc
+*.pro.user*
 
-# Custom
-/Throne
-/build
-CMakeLists.txt.user*
-/cmake-build-*
-/build-*
-.vscode
-.idea
+# script/FindProcDLL.dll is a build dependency of script/windows_installer.nsi
+# and is tracked on purpose — keep it that way.
+!script/FindProcDLL.dll
 
-# Deploy
-/deployment
-/neko*.sh
-/qtsdk
+# --- Go ----------------------------------------------------------------------
+go.work
+go.work.sum
+*.test
+*.out
+*.pprof
+core/server/vendor/
 
-.vs
-out
-/libs
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# --- Editors and IDEs --------------------------------------------------------
+.vscode/
+.idea/
+.vs/
+.cache/
+.clangd/
+.history/
+*.user
+*.userosscache
+*.suo
+*.swp
+*.swo
+*~
+.\#*
+\#*\#
+
+# --- Operating systems -------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# --- Downloaded and generated artifacts --------------------------------------
 srslist.h
-.claude
+artifacts.tgz
+go.zip
+qt.7z
+openssl.7z
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.deb
+*.rpm

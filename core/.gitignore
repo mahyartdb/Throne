@@ -1,8 +1,17 @@
+# Runtime artifacts of the Go core - written next to the binary when it runs.
+config.json
 *.log
 *.pem
-*.json
-*.exe
-*.dat
 *.db
+*.dat
+
+# Build output of `go build` / `go test`.
+*.exe
+*.test
+
+# Generated protobuf sources - regenerate with script/build_go.sh.
 gen/*.pb.go
 gen/*.pb.*.go
+
+# Test fixtures are source, never artifacts.
+!**/testdata/**
