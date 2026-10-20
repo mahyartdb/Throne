@@ -1,0 +1,35 @@
+# EditorConfig — https://editorconfig.org
+# Mirrors .gitattributes: LF everywhere, UTF-8, no trailing whitespace.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{yml,yaml,json,md}]
+indent_size = 2
+
+[*.{py,sh,bash,nsi}]
+indent_size = 4
+
+[*.{cpp,h,ui,qss,qml}]
+indent_size = 4
+
+# Generated Qt Designer / Qt Linguist files are machine-written; leave them alone.
+[*.ui]
+trim_trailing_whitespace = false
+
+[*.ts]
+trim_trailing_whitespace = false
+
+# Vendored code keeps its own style.
+[3rdparty/**]
+indent_size = unset
+trim_trailing_whitespace = unset
+insert_final_newline = unset
+end_of_line = unset
