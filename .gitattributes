@@ -1,0 +1,54 @@
+# ---------------------------------------------------------------------------
+# Throne — file and line-ending rules
+#
+# The blob in the repository is the source of truth: every text file is stored
+# with LF endings and checked out with LF endings on every platform. Linux CI
+# runs script/*.sh straight out of the checkout, so shell scripts must stay LF.
+#
+# This file overrides core.autocrlf, which is why a Windows clone of Throne
+# also gets LF working-tree files.
+# ---------------------------------------------------------------------------
+
+# Detect text vs binary per file, and keep text as LF everywhere.
+*               text=auto eol=lf
+
+# Windows-only scripts still need CRLF to run.
+*.bat           text eol=crlf
+*.cmd           text eol=crlf
+*.ps1           text eol=crlf
+
+# Shell scripts must be LF on every platform, wherever they live.
+*.sh            text eol=lf
+*.bash          text eol=lf
+
+# Formats where CRLF would corrupt the file or the tool that reads it.
+*.ts            text eol=lf
+*.po            text eol=lf
+*.ui            text eol=lf
+*.qrc           text eol=lf
+*.qml           text eol=lf
+*.svg           text eol=lf
+
+# --- Binary assets — never touched by line-ending conversion -----------------
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.gif           binary
+*.bmp           binary
+*.ico           binary
+*.icns          binary
+*.ttf           binary
+*.otf           binary
+*.woff          binary
+*.woff2         binary
+*.pdf           binary
+*.zip           binary
+*.gz            binary
+*.7z            binary
+*.dll           binary
+*.exe           binary
+*.lib           binary
+*.a             binary
+*.so            binary
+*.dylib         binary
+*.pdb           binary
